@@ -4,10 +4,6 @@
 // init project
 var express = require('express');
 var app = express();
-const Discord = require('discord.js'); //Discord library
-const client = new Discord.Client({
-  forceFetchUsers: true
-});
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -30,11 +26,7 @@ app.get('/about', function(request, response) {
 
 app.get('*', function(req, res){ res.status(404).sendFile(__dirname + '/404/index.html'); });
 
-console.log(client.users.size);
-
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
-
-client.login(process.env.TOKEN);
