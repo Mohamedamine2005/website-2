@@ -1,71 +1,115 @@
-/* styles */
-/* called by your view template */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-* {
-  box-sizing: border-box;
+/* ---- reset ---- */ 
+body{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: black;
+  color: white;
+} 
+
+canvas{ 
+  display: flex; 
+  vertical-align: bottom; 
+} 
+/* ---- particles.js container ---- */ 
+
+#particles-js{ position:absolute;  width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } 
+
+/* ------------------------- */
+
+.full {
+    height: 100vh;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background: linear-gradient(-150deg, rgb(0, 0, 0), rgba(0, 0, 0, 1));
+    background-size: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+
 }
 
-body {
-  font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
-  margin: 2em;
+::selection {
+  background: rgba(80, 80, 80, 0.5);
+  /* Safari */
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
+::-moz-selection {
+  background: rgba(80, 80, 80, 0.5);
+  /* Firefox */
 }
 
-.bold {
-  font-weight: bold;
+.black-gradient {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)) !important;
 }
 
-p {
-  max-width: 600px;
+.header-wrapper h2 { 
+    margin-bottom: 0;
+    font-weight: 900;
 }
 
-form {
-  margin-bottom: 25px;
-  padding: 15px;
-  background-color: cyan;
-  display: inline-block;
-  width: 100%;
-  max-width: 340px;
-  border-radius: 3px;
+.header-wrapper p{
+  font-size: 1.4rem;
 }
 
-input {
-  display: block;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-  font-size: 16px;
+.header-wrapper {
+    margin-top: 0px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
-button {
-  font-size: 16px;
-  border-radius: 3px;
-  background-color: lightgrey;
-  border: 1px solid grey;
-  box-shadow: 2px 2px teal;
-  cursor: pointer;
+.txt {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: -48px;
 }
 
-button:hover {
-  background-color: yellow;
+#nav-mobile li>a.f::before {
+    background-color: #fff;
+    left: 0px;
+    width: 3px;
+    height: 100%;
+    transform: scaleY(0);
 }
 
-button:active {
-  box-shadow: none;
+ul li>a.f::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transition: transform .2s, background-color .2s;
 }
 
-li {
-  margin-bottom: 5px;
+ul li>a.f:hover::before {
+    transform: scaleX(1)
 }
 
-footer {
-  margin-top: 50px;
-  padding-top: 25px;
-  border-top: 1px solid lightgrey;
+ul li>a.f:focus::before {
+    transform: scaleX(1)
+}
+
+#nav-mobile li>a.f:hover::before {
+    transform: scaleY(1)
 }

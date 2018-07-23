@@ -1,58 +1,119 @@
-<!-- This is a static file -->
-<!-- served from your routes in server.js -->
-
-<!-- You might want to try something fancier: -->
-<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
-<!-- pug: https://pugjs.org/ -->
-<!-- haml: http://haml.info/ -->
-<!-- hbs(handlebars): http://handlebarsjs.com/ -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Welcome to Glitch!</title>
-    <meta name="description" content="A cool thing made with Glitch">
-    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000000">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#000000">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
     
-    <!-- import the webpage's client-side javascript file -->
-    <script src="/client.js" defer></script>
-  </head>
+    <meta name="description" content="Landing page of 'English Star' group. There you can enroll in our english courses." />
+    <meta name="keywords" content="english, english courses, course, courses, english star" />
+    <meta name="author" content="jarvis" />
+    <link rel="shortcut icon" href="https://cdn.glitch.com/dc9e80ff-cd40-4f49-9110-bd309a5952db%2F862.png?1531407284127">
+
+    <title>expoBot | Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="materialize.css">
+    <link rel="stylesheet" href="animate.css" />
+    
+    <!-- import the webpage's javascript file -->
+    <script src="script.js" defer></script>
+  </head>  
+  
+  <style>
+    
+    #particle-js {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: 50% 50%;
+				opacity: 0.48;
+			}
+			canvas {
+				position: fixed;
+			}
+    
+  </style>
+  
   <body>
-    <header>
-      <h1>
-        A Dream of the Future
-      </h1>
-    </header>
 
-    <main>
-      <p class="bold">Oh hi,</p>
-      
-      <p>Tell me your hopes and dreams:</p>
-      
-      <form>
-        <input name="dream" type="text" maxlength="100" placeholder="Dreams!" aria-labelledby="submit-dream">
-        <button type="submit" id="submit-dream">Submit Dream</button>
-      </form>
-      
-      <section class="dreams">
-        <ul id="dreams"></ul>
-      </section>
-    </main>
+  <div class="full">
 
-    <footer>
-      Made with <a href="https://glitch.com">Glitch</a>!
-    </footer>
+    <div class="navbar-fixed">
+      <nav class="transparent z-depth-0" role="navigation">
+        <div class="nav-wrapper container">
+          <a href="/" class="left valign-wrapper hide-on-med-and-down" style="height: 100%;">
+            <img style="height: 80%;" src="https://cdn.glitch.com/dc9e80ff-cd40-4f49-9110-bd309a5952db%2Ftransparent.png?1531409065396">
+          </a>
+          <a href="/" class="right hide-on-large-only valign-wrapper animated fadeIn" style="height: 100%;">
+            <img style="height: 80%;" src="https://cdn.glitch.com/dc9e80ff-cd40-4f49-9110-bd309a5952db%2Ftransparent.png?1531409065396">
+          </a>
+          
+          <ul class="right hide-on-med-and-down">
+            <li>
+              <a href="/" class="f waves-effect waves-light white-text" style="font-weight: 900; box-shadow: 0 -4px 0 -1px #fff inset;">Home</a>
+              <a href="/about" class="f waves-effect waves-light white-text">About</a>
+              <a href="/commands" class="f waves-effect waves-light white-text">Commands</a>
+              <a href="https://discordapp.com/invite/Px2rjxQ" class="f waves-effect waves-light white-text">Community</a>
+              <a href="https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot" class="waves-effect waves-light btn-flat white-text center" style="border-style: solid; border-width: 2px; border-radius: 5px; border-color: white;">INVITE</a>
+            </li>
+          </ul>
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger left animated fadeIn">
+            <i class="material-icons white-text">menu</i>
+          </a>
+        </div>
+      </nav>
+    </div>
+<!-- particles.js container -->
+    <div id="particles-js" class="animated fadeIn">
+    </div>
+    <ul id="nav-mobile" class="sidenav black-gradient">
+      <li>
+        <a href="/" class="f waves-effect waves-light white-text" style="font-weight: 900; box-shadow: 4px 0px 0 -1px #fff inset;">Home</a>
+        <a href="/about" class="f waves-effect waves-light white-text">About</a>
+        <a href="/commands" class="f waves-effect waves-light white-text">Commands</a>
+        <a href="https://discordapp.com/invite/Px2rjxQ" class="f waves-effect waves-light white-text">Community</a>
+        <a href="https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot" class="waves-effect waves-light btn-flat white-text center" style="border-style: solid; border-width: 2px; border-radius: 5px; border-color: white;">INVITE</a>
+      </li>
+    </ul>
 
-  </body>
+        <div class="header-wrapper">
+          <div class="txt">
+            <h2 class="center white-text animated fadeInUp">expoBot</h2>
+            <p class="center white-text animated fadeInUp">bot that you need</p> 
+            <a href="https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot" class="animated fadeInUp waves-effect waves-light btn-flat white-text" style="border-style: solid; border-width: 2px; border-radius: 5px; border-color: white;">INVITE</a>
+            <!--<p class="center white-text animated fadeInUp"><span id="guild-count"></span> servers</p>-->
+          </div>
+        </div>
+      <!--<footer class="center" style="position: absolute;"><a class="copyrighted-badge" title="Copyrighted.com Registered &amp; Protected" target="_blank" href="https://www.copyrighted.com/website/1o6RPYRSeFDaVXK7"><img alt="Copyrighted.com Registered &amp; Protected" border="0" width="125" height="25" srcset="https://static.copyrighted.com/badges/125x25/02_1_2x.png 2x" src="https://static.copyrighted.com/badges/125x25/02_1.png" /></a><script src="https://static.copyrighted.com/badges/helper.js"></script></footer>-->
+      </div>
+    
+    
+
+    
+  <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+  <script src="particles.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script src="scriptParticles.js"></script>
+
+</body>
+
 </html>
