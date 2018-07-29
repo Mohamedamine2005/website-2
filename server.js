@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var session  = require('express-session')
 var passport = require('passport');
-var DiscordStrategy = require('passport-discord').Strategy;
+var DiscordStrategy = require(./strategy).Strategy;
 
 app.use(express.static('public'));
 
@@ -22,9 +22,9 @@ passport.deserializeUser(function(obj, done) {
 var scopes = ['identify', 'email', /* 'connections', (it is currently broken) */ 'guilds', 'guilds.join'];
 
 passport.use(new DiscordStrategy({
-    clientID: '',
-    clientSecret: '',
-    callbackURL: 'http://localhost:5000/callback',
+    clientID: '464747957288435732',
+    clientSecret: 'BwerPCx896WSIY_uQhfgBgZj4l5GXir1',
+    callbackURL: 'https://expobot.glitch.me/about',
     scope: scopes
 }, function(accessToken, refreshToken, profile, done) {
     process.nextTick(function() {
@@ -39,7 +39,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.get('/', passport.authenticate('discord', { scope: scopes }), function(req, res) {});
+app.get('/auth', passport.authenticate('discord', { scope: scopes }), function(req, res) {});
 app.get('/callback',
     passport.authenticate('discord', { failureRedirect: '/' }), function(req, res) { res.redirect('/info') } // auth success
 );
