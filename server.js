@@ -24,7 +24,6 @@ var scopes = ['identify', 'email', /* 'connections', (it is currently broken) */
 passport.use(new DiscordStrategy({
     clientID: '464747957288435732',
     clientSecret: 'BwerPCx896WSIY_uQhfgBgZj4l5GXir1',
-    callbackURL: 'http://localhost:5000/callback',
     scope: scopes
 }, function(accessToken, refreshToken, profile, done) {
     process.nextTick(function() {
@@ -32,11 +31,6 @@ passport.use(new DiscordStrategy({
     });
 }));
 
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false
-}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.get('/auth', passport.authenticate('discord', { scope: scopes }), function(req, res) {});
