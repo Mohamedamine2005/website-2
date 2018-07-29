@@ -7,10 +7,10 @@ const router = express.Router();
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const redirect = encodeURIComponent('https://expobot.glitch.me/info');
+const redirect = encodeURIComponent('https://expobot.glitch.me/login/callback');
 
 router.get('/', (req, res) => {
-  res.redirect(`https://discordapp.com/oauth2/authorize?client_id=${CLIENT_ID}&scope=identify&response_type=code&redirect_uri=${redirect}`);
+  res.redirect(`https://discordapp.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=https%3A%2F%2Fexpobot.glitch.me%2Flogin%2Fcallback&response_type=code&scope=identify%20connections%20guilds%20email%20guilds.join`);
 });
 
 router.get('/callback', catchAsync(async (req, res) => {
