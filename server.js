@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
-var session  = require('express-session')
+var session  = require('express-session');
 var passport = require('passport');
-var DiscordStrategy = require(./strategy).Strategy;
+var DiscordStrategy = require("passport-discord").Strategy;
 
 app.use(express.static('public'));
 
@@ -24,7 +24,7 @@ var scopes = ['identify', 'email', /* 'connections', (it is currently broken) */
 passport.use(new DiscordStrategy({
     clientID: '464747957288435732',
     clientSecret: 'BwerPCx896WSIY_uQhfgBgZj4l5GXir1',
-    callbackURL: 'https://expobot.glitch.me/about',
+    callbackURL: 'http://localhost:5000/callback',
     scope: scopes
 }, function(accessToken, refreshToken, profile, done) {
     process.nextTick(function() {
@@ -48,7 +48,7 @@ app.get('/logout', function(req, res) {
     res.redirect('/');
 });
 app.get('/info', checkAuth, function(req, res) {
-    //console.log(req.user)
+    console.log(req.user)
     res.json(req.user);
 });
 
