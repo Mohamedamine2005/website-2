@@ -4,6 +4,7 @@ const btoa = require('btoa');
 const { catchAsync } = require('./utils');
 
 const router = express.Router();
+var token;
 
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
@@ -26,7 +27,20 @@ router.get('/callback', catchAsync(async (req, res) => {
     });
   const json = await response.json();
   res.redirect(`/?token=${json.access_token}`);
+  token = json.access_token;
 }));
 
+router.get('/user', catchAsync(async (req, res) => {
+  if (!req.query.code) throw new Error('NoCodeProvided');
+  const code = req.query.code;
+  const creds = btoa(`${CLIENT_ID}:${CLIENT_SECRET}`);
+  const response = await fetch('http://discordapp.com/api/users/@me', {
+  headers: {
+    Authorization: `Bearer ${token}`,
+  }
+});
+const json = await response.json();
+console.log(json) // json response from discord.
+}));
 
 module.exports = router;
