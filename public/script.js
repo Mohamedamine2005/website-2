@@ -59,7 +59,7 @@ $(document).ready(function() {
   }
 
   async function login() {
-    await discord.login('393448325438898187', Scope.Identify, Scope.Connections, Scope.Email, Scope.Guilds);
+    await discord.login('464747957288435732', Scope.Identify, Scope.Connections, Scope.Email, Scope.Guilds);
   }
 
   async function logout() {
