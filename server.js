@@ -2,6 +2,13 @@ const DBL = require('dblapi.js');
 const express = require('express');
 const http = require('http');
 var app = express();
+var jsdom = require("jsdom");
+const { JSDOM } = jsdom;
+const { window } = new JSDOM();
+const { document } = (new JSDOM('')).window;
+global.document = document;
+
+var $ = jQuery = require('jquery')(window);
 
 app.use(express.static('public'));
 
@@ -12,7 +19,9 @@ dbl.webhook.on('ready', hook => {
   console.log(`Webhook running with path ${hook.path}`);
 });
 dbl.getStats("464747957288435732").then(stats => {
-   $("#guild-count").text(stats.server_count);
+  $(document).ready(function() {
+    $("#guild-count").val(stats.server_count);
+  });
 });
 
 app.get('/', function(request, response) {
