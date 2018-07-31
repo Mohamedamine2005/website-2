@@ -50,6 +50,22 @@
     
   </style>
   
+  <script>
+  
+  // Load bot stats
+    var request = new XMLHttpRequest();
+    request.open('GET', 'https://discordbots.org/api/bots/464747957288435732/stats?_', true);
+    request.onload = function() {
+        if (request.status >= 200 && request.status < 400) {
+            var data = JSON.parse(request.responseText);
+            document.getElementById("guild-count").innerText = data['server_count'].toLocaleString();
+        }
+    };
+    request.onerror = function(){}; // Fuck
+    request.send();
+  
+  </script>
+  
   <body>
 
   <div class="full">
