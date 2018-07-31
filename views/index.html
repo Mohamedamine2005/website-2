@@ -54,6 +54,8 @@
   <script>
 
     
+    const redirect = 'https://expobot.glitch.me/login/callback'
+    
     class LoginWithDiscord {
   /** Create a loginer */
   constructor(options) {
@@ -97,7 +99,7 @@
       this.clearAuth();
     }
   }
-  /** Login to the Discord API */
+  /* Login to the Discord API */
   async login(clientID, ...scopes) {
     return new Promise((resolve, reject) => {
       if (this.getAuth()) {
@@ -112,7 +114,7 @@
           return;
         }
       }
-      let url = `https://discordapp.com/oauth2/authorize?response_type=token&client_id=${clientID}&scope=${scopes.join('+')}&redirect_uri=${window.location.origin}${window.location.pathname}`;
+      let url = `https://discordapp.com/oauth2/authorize?response_type=token&client_id=${clientID}&scope=${scopes.join('+')}` + `&redirect_uri=${redirect}`;
       let popout = window.open(url, 'LWD-login', `width=400,height=600`);
       popout.focus();
       let waiter = setInterval(() => {
@@ -436,10 +438,11 @@ var Util;
   Util.requestJSON = requestJSON;
 })(Util || (Util = {}));
     
-  
+    //STARTED
+    
     let discord = new LoginWithDiscord({
-    cache: true
-  });
+      cache: true
+    });
 
   discord.onlogin = async () => {
     Array.from(document.getElementsByClassName('out')).forEach(x => {
