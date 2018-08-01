@@ -42,6 +42,10 @@ body {
   font-weight: 500;
 }
 
+.header-wrapper p{
+  font-size: 1.4rem;
+}
+
 .txt {
   position: absolute;
   width: 100%;

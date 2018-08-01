@@ -5,6 +5,8 @@ body{
   margin: 0;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
+  background-color: black;
+  color: white;
 } 
 
 /* ---- particles.js container ---- */ 
@@ -34,11 +36,6 @@ body{
     background-origin: initial;
     background-clip: initial;
     margin-top: -56px;
-}
-
-.skewedBox {
-  transform: skew(0deg, -5deg) translateY(-150px);
-  padding: 100px;
 }
 
 ::selection {
