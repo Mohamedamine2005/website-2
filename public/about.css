@@ -25,6 +25,10 @@ body {
     background-clip: initial;
 }
 
+.drag-target {
+  width: 32px !important;
+}
+
 .skewedBox {
   transform: skew(0deg, -5deg) translateY(-150px);
   padding: 100px;

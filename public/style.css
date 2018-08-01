@@ -15,6 +15,10 @@ body{
 
 /* ------------------------- */
 
+.drag-target {
+  width: 32px !important;
+}
+
 .full {
     height: 100vh;
     -webkit-box-align: stretch;

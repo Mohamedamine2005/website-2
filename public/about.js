@@ -5,15 +5,15 @@ $(document).ready(function() {
   // Init ScrollMagic
   var ctrl = new ScrollMagic.Controller();
    
-  //$('.opacity').each(function () {
+  $('.opacity').each(function () {
     
     var Scene = new ScrollMagic.Scene({
-      triggerElement: "half",
-      triggerHook: 0.9
+      triggerElement: ".half",
+      triggerHook: 1
     })
-    .setClassToggle("opacity", "fadeIn")
+    .setClassToggle(".opacity", "fadeIn")
     .addTo(ctrl);
     
- // });
+  });
 
 });
