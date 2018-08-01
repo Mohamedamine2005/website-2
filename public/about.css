@@ -1,5 +1,7 @@
 body {
   background-color: #f44336;
+  margin: 0;
+  padding: 0;
 }
 
 .full {
@@ -35,13 +37,17 @@ body {
   text-align: center;
 }
 
+.header-wrapper h2 { 
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
 .txt {
   position: absolute;
   width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin-top: -48px;
 }
 
 ::selection {
