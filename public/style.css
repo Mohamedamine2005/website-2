@@ -39,8 +39,6 @@ canvas{
     background-attachment: initial;
     background-origin: initial;
     background-clip: initial;
-    background-color: initial;
-
 }
 
 ::selection {
