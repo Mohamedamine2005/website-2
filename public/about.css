@@ -31,7 +31,6 @@ body {
 
 .skewedBox {
   transform: skew(0deg, -5deg) translateY(-150px);
-  padding: 100px;
 }
 
 .header-wrapper {
