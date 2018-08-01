@@ -29,7 +29,13 @@ body {
   padding: 100px;
 }
 
-.skewedBox.container {
+.header-wrapper {
+  margin-top: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.txt {
   position: absolute;
   width: 100%;
   top: 50%;
