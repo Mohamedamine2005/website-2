@@ -1,6 +1,12 @@
 body {
-  background-color: #111;
+  background-color: #000;
 }
+
+
+.skewedBox {
+  transform: skew(0deg, -5)
+}
+
 
 #nav-mobile li>a.f::before {
     background-color: #fff;
