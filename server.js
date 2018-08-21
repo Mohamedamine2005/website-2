@@ -1,10 +1,15 @@
 const express = require('express');
 var app = express();
 const firebase = require('firebase');
+const btoa = require('btoa');
 
 app.use(express.static('public'));
 
 /********   DASHBOARD   ********/
+
+const CLIENT_ID = "464747957288435732";
+const CLIENT_SECRET = "BwerPCx896WSIY_uQhfgBgZj4l5GXir1";
+const redirect = encodeURIComponent('https://expobot.glitch.me/callback');
 
 // Initialize Firebase
 var config = {
@@ -22,24 +27,35 @@ var database = firebase.database();
 
 function createOrFindUser(id) {
   var userData = database.ref('users/' + id);
-  
+  console.log(userData)
   if (userData == null) {
     database.ref('users/' + id).set({
       avatar: Math.random(),
       refresh_token: "asdd"
     });
-  } 
+    return userData;
+  } else {
+    return userData;
+  }
 }
 
-app.get('/login', function(request, response) {
-  
+app.get('/login', (req, res) => {
+  res.redirect(`https://discordapp.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${redirect}&response_type=code&scope=identify%20email%20connections%20guilds`);
 });
 
-app.get('/create', function(request, response) {
-  
-  createOrFindUser("jarvis");
-  response.sendFile(__dirname + '/views/index.html');
-    
+app.get('/callback', async (req, res) => {
+  if (!req.query.code) throw new Error('NoCodeProvided');
+  const code = req.query.code;
+  const creds = btoa(`${CLIENT_ID}:${CLIENT_SECRET}`);
+  const response = await fetch(`https://discordapp.com/api/oauth2/token?grant_type=authorization_code&redirect_uri=${redirect}&code=${code}`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${creds}`,
+    },
+  });
+  const json = await response.json();
+  res.redirect(`/?token=${json.access_token}`);
+
 });
 
 /********   RESPONSES   ********/
