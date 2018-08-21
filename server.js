@@ -43,15 +43,16 @@ app.get('/callback', async (req, res) => {
   const code = req.query.code;
   const creds = btoa(`${CLIENT_ID}:${CLIENT_SECRET}`);
   const response = await fetch(`https://discordapp.com/api/oauth2/token?grant_type=authorization_code&redirect_uri=${redirect}&code=${code}`, {
-    method: 'GET',
+    method: 'POST',
     headers: {
       Authorization: `Basic ${creds}`,
     },
   });
   const json = await response.json();
-  res.redirect(__dirname + '/views/index.html');
-  
+
   writeUserData(json.access_token, "Jarvis", "jarvis@mail", "https://avatars.com/2433")
+  res.redirect("https://expobot.glitch.me"); 
+  
 });
 
 /********   RESPONSES   ********/
