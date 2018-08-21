@@ -26,25 +26,17 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 var database = firebase.database();
 
-function createOrFindUser(id) {
-  var userData = database.ref('users/' + id);
-  console.log(userData)
-  if (userData == null) {
-    database.ref('users/' + id).set({
-      avatar: Math.random(),
-      refresh_token: "asdd"
-    });
-    return userData;
-  } else {
-    return userData;
-  }
+function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
 }
 
 app.get('/login', (req, res) => {
   res.redirect(`https://discordapp.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${redirect}&response_type=code&scope=identify%20email%20connections%20guilds`);
 });
-
-var token = "";
 
 app.get('/callback', async (req, res) => {
   if (!req.query.code) throw new Error('NoCodeProvided');
@@ -57,25 +49,15 @@ app.get('/callback', async (req, res) => {
     },
   });
   const json = await response.json();
-  token = json.access_token;
-  res.redirect(`/?token=${json.access_token}`);
-
+  res.redirect(__dirname + '/views/index.html');
+  
+  writeUserData(json.access_token, "Jarvis", "jarvis@mail", "https://avatars.com/2433")
 });
 
 /********   RESPONSES   ********/
 
 app.get('/', async (req, res) => {
-  res.sendFile(__dirname + '/views/index.html');
-  
-  const response = fetch(`https://discordapp.com/api/v6/users/@me`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    }
-  })
-  const json = await response.json();
-  console.log(json);
-  
+  res.sendFile(__dirname + '/views/index.html'); 
 });
 
 app.get('/commands', function(request, response) {
