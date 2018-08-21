@@ -58,7 +58,7 @@ app.get('/callback', async (req, res) => {
   const jsonUser = await resp.json();
 
   writeUserData(jsonUser.id, jsonUser.username, json.access_token, jsonUser.avatar)
-  res.redirect("https://expobot.glitch.me/dashboard"); 
+  res.redirect("https://dashboard-expobot.glitch.me"); 
   
 });
 
@@ -72,12 +72,12 @@ app.get('/commands', function(request, response) {
   response.sendFile(__dirname + '/commands/index.html');
 });
 
-app.get('*', function(request, response) {
-  response.status(404).sendFile(__dirname + '/404/index.html');
+app.get('/dashboard', function(request, response) {
+  response.redirect("https://dashboard-expobot.glitch.me"); 
 });
 
-app.get('/dashboard', function(request, response) {
-  response.sendFile(__dirname + '/dashboard/index.html');
+app.get('*', function(request, response) {
+  response.status(404).sendFile(__dirname + '/404/index.html');
 });
 
 var listener = app.listen(process.env.PORT, function() {
