@@ -29,9 +29,9 @@ function createUser(username, token, refresh) {
 
 app.get('/create', function(request, response) {
   
-  createUser("jarvis", "shjdbaishjdfbiahsdf", "refresh_token");
+  createUser("jarvis", "shjdbaishjdfbiahsdf", "auoysgdlaujhsd");
   
-  response.sendFile(__dirname + "/404/index.html")
+  response.redirect("https://dashboard-expobot.glitch.me/");
   
 });
 
