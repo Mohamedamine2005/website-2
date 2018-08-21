@@ -1,26 +1,3 @@
-var firebase = require("firebase");
-
-// Initialize Firebase
-var config = {
-  apiKey: process.env.FIREBASE_API,
-  authDomain: "expobot-db.firebaseapp.com",
-  databaseURL: "https://expobot-db.firebaseio.com",
-  projectId: "expobot-db",
-  storageBucket: "expobot-db.appspot.com",
-  messagingSenderId: "516029793651"
-};
-firebase.initializeApp(config);
-
-// Get a reference to the database service
-var database = firebase.database();
-
-function createUser(username, token, refresh) {
-  firebase.database().ref('users/' + username).set({
-    token: token,
-    refresh_token: refresh
-  });
-}
-
 let discord = new LoginWithDiscord({
   cache: true 
 });
@@ -32,6 +9,7 @@ discord.onlogin = async () => {
 
   // The login state
   discord.state;
+  
 }
 
 // Fires when there is no auth token

@@ -6,7 +6,30 @@ app.use(express.static('public'));
 
 /********   DASHBOARD   ********/
 
+// Initialize Firebase
+var config = {
+  apiKey: process.env.FIREBASE_API,
+  authDomain: "expobot-db.firebaseapp.com",
+  databaseURL: "https://expobot-db.firebaseio.com",
+  projectId: "expobot-db",
+  storageBucket: "expobot-db.appspot.com",
+  messagingSenderId: "516029793651"
+};
+firebase.initializeApp(config);
 
+// Get a reference to the database service
+var database = firebase.database();
+
+function createOrFindUser(id) {
+  var userData = database.ref('users/' + id);
+  
+  if (userData == null) {
+    database.ref('users/' + id).set({
+      avatar: Math.random(),
+      refresh_token: "asdd"
+    });
+  } 
+}
 
 app.get('/login', function(request, response) {
   
@@ -14,7 +37,8 @@ app.get('/login', function(request, response) {
 
 app.get('/create', function(request, response) {
   
-  createUser("jarvis", "shjdbaishjdfbiahsdf", "auoysgdlaujhsd");
+  createOrFindUser("jarvis");
+  response.sendFile(__dirname + '/views/index.html');
     
 });
 
