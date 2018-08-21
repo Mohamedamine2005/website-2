@@ -34,7 +34,6 @@
   <!-- Import LoginWithDiscord -->
   <script src="./lwd.js"></script>
   <!-- And then import the webpage's javascript file -->
-  <script src="login.js"></script>
   <script src="script.js"></script>
 
 </head>
@@ -54,20 +53,6 @@
     position: fixed;
   }
 </style>
-  
-  <script>
-    const qs = (key) => {
-      key = key.replace(/[*+?^$.[\]{}()|\\/]/g, '\\$&'); // escape RegEx meta chars
-      const match = window.location.search.match(new RegExp(`[?&]${key}=([^&]+)(&|$)`));
-      return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
-    }
-        
-    if (qs('token') !== null) {
-      var tokenText = document.getElementById("token");
-      tokenText.innerHTML = "etst"
-    }
-    
-  </script>
 
 <body>
 
@@ -116,7 +101,7 @@
       <div class="txt">
         <h2 class="center white-text animated fadeInUp">expoBot</h2>
         <p class="center white-text animated fadeInUp">bot that you need</p>
-        <p id="token"></p>
+        <h1 id="toptitle">Probfil</h1>
         <a href="https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot" onclick="window.open('https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot', 'newwindow', 'width=500,height=800'); return false;" class="animated fadeInUp waves-effect waves-light btn-flat white-text center" style="border-style: solid; border-width: 2px; border-radius: 5px; border-color: white;">INVITE</a>
       </div>
     </div>

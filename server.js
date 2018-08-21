@@ -2,6 +2,7 @@ const express = require('express');
 var app = express();
 const firebase = require('firebase');
 const btoa = require('btoa');
+const fetch = require('node-fetch');
 
 app.use(express.static('public'));
 
@@ -43,25 +44,38 @@ app.get('/login', (req, res) => {
   res.redirect(`https://discordapp.com/api/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${redirect}&response_type=code&scope=identify%20email%20connections%20guilds`);
 });
 
+var token = "";
+
 app.get('/callback', async (req, res) => {
   if (!req.query.code) throw new Error('NoCodeProvided');
   const code = req.query.code;
   const creds = btoa(`${CLIENT_ID}:${CLIENT_SECRET}`);
   const response = await fetch(`https://discordapp.com/api/oauth2/token?grant_type=authorization_code&redirect_uri=${redirect}&code=${code}`, {
-    method: 'POST',
+    method: 'GET',
     headers: {
       Authorization: `Basic ${creds}`,
     },
   });
   const json = await response.json();
+  token = json.access_token;
   res.redirect(`/?token=${json.access_token}`);
 
 });
 
 /********   RESPONSES   ********/
 
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
+app.get('/', async (req, res) => {
+  res.sendFile(__dirname + '/views/index.html');
+  
+  const response = fetch(`https://discordapp.com/api/v6/users/@me`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+  const json = await response.json();
+  console.log(json);
+  
 });
 
 app.get('/commands', function(request, response) {
