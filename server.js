@@ -4,21 +4,7 @@ const firebase = require('firebase');
 
 app.use(express.static('public'));
 
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
-});
-
-app.get('/commands', function(request, response) {
-  response.sendFile(__dirname + '/commands/index.html');
-});
-
-app.get('*', function(req, res) {
-  res.status(404).sendFile(__dirname + '/404/index.html');
-});
-
-var listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+/********   DASHBOARD   ********/
 
 // Initialize Firebase
 var config = {
@@ -34,18 +20,35 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 var database = firebase.database();
 
-function createUser(user, name, token, refresh) {
-  firebase.database().ref('users/' + user).set({
-    username: name,
+function createUser(username, token, refresh) {
+  firebase.database().ref('users/' + username).set({
     token: token,
     refresh_token : refresh
   });
 }
 
-function deleteUser(user) {
-  firebase.database().ref('users/' + user).set({
-    username: name,
-    token: token,
-    refresh_token : refresh
-  });
-}
+app.get('/create', function(request, response) {
+  
+  createUser("jarvis", "shjdbaishjdfbiahsdf", "refresh_token");
+  
+  response.sendFile(__dirname + "/404/index.html")
+  
+});
+
+/********   RESPONSES   ********/
+
+app.get('/', function(request, response) {
+  response.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/commands', function(request, response) {
+  response.sendFile(__dirname + '/commands/index.html');
+});
+
+app.get('*', function(request, response) {
+  response.status(404).sendFile(__dirname + '/404/index.html');
+});
+
+var listener = app.listen(process.env.PORT, function() {
+  console.log('Your app is listening on port ' + listener.address().port);
+});
