@@ -6,28 +6,6 @@ app.use(express.static('public'));
 
 /********   DASHBOARD   ********/
 
-// Initialize Firebase
-var config = {
-  apiKey: process.env.FIREBASE_API,
-  authDomain: "expobot-db.firebaseapp.com",
-  databaseURL: "https://expobot-db.firebaseio.com",
-  projectId: "expobot-db",
-  storageBucket: "expobot-db.appspot.com",
-  messagingSenderId: "516029793651"
-};
-firebase.initializeApp(config);
-
-// Get a reference to the database service
-var database = firebase.database();
-
-
-function createUser(username, token, refresh) {
-  firebase.database().ref('users/' + username).set({
-    token: token,
-    refresh_token : refresh
-  });
-}
-
 
 
 app.get('/login', function(request, response) {
@@ -37,9 +15,7 @@ app.get('/login', function(request, response) {
 app.get('/create', function(request, response) {
   
   createUser("jarvis", "shjdbaishjdfbiahsdf", "auoysgdlaujhsd");
-  
-  response.redirect("https://dashboard-expobot.glitch.me/");
-  
+    
 });
 
 /********   RESPONSES   ********/

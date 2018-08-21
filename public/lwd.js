@@ -57,8 +57,7 @@ class LoginWithDiscord {
                     return;
                 }
             }
-            // https://discordapp.com/oauth2/authorize?response_type=token&client_id=${clientID}&scope=${scopes.join('+')&redirect_uri=${window.location.origin}${window.location.pathname}}
-            let url = `https://discordapp.com/oauth2/authorize?response_type=token&client_id=${clientID}&scope=${scopes.join('+')}`;
+            let url = `https://discordapp.com/oauth2/authorize?response_type=token&client_id=${clientID}&scope=${scopes.join('+')}&redirect_uri=${window.location.origin}${window.location.pathname}`;
             let popout = window.open(url, 'LWD-login', `width=400,height=600`);
             popout.focus();
             let waiter = setInterval(() => {
