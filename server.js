@@ -22,8 +22,8 @@ var database = firebase.database();
 
 function createUser(username, token, refresh) {
   firebase.database().ref('users/' + username).set({
-    "token": token,
-    "refresh_token" : refresh
+    token: token,
+    refresh_token : refresh
   });
 }
 
@@ -31,7 +31,7 @@ app.get('/create', function(request, response) {
   
   createUser("jarvis", "shjdbaishjdfbiahsdf", "refresh_token");
   
-  response.redirect("")
+  response.sendFile(__dirname + "/404/index.html")
   
 });
 
