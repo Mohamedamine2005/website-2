@@ -26,11 +26,11 @@ firebase.initializeApp(config);
 // Get a reference to the database service
 var database = firebase.database();
 
-function writeUserData(userId, name, email, imageUrl) {
+function writeUserData(userId, name, token, imageUrl) {
   firebase.database().ref('users/' + userId).set({
     username: name,
-    email: email,
-    profile_picture : imageUrl
+    token: token,
+    avatar : imageUrl
   });
 }
 
@@ -49,9 +49,16 @@ app.get('/callback', async (req, res) => {
     },
   });
   const json = await response.json();
+  
+  const resp = await fetch('http://discordapp.com/api/users/@me', {
+    headers: {
+      Authorization: `Bearer ${json.access_token}`,
+    }
+  });
+  const jsonUser = await resp.json();
 
-  writeUserData(json.access_token, "Jarvis", "jarvis@mail", "https://avatars.com/2433")
-  res.redirect("https://expobot.glitch.me"); 
+  writeUserData(jsonUser.id, jsonUser.username, json.access_token, jsonUser.avatar)
+  res.redirect("https://expobot.glitch.me/dashboard"); 
   
 });
 
@@ -67,6 +74,10 @@ app.get('/commands', function(request, response) {
 
 app.get('*', function(request, response) {
   response.status(404).sendFile(__dirname + '/404/index.html');
+});
+
+app.get('/dashboard', function(request, response) {
+  response.sendFile(__dirname + '/dashboard/index.html');
 });
 
 var listener = app.listen(process.env.PORT, function() {
