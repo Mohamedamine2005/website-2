@@ -116,5 +116,5 @@ ul li>a.f:focus::before {
 }
 
 .blackFade {
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.85);
 }
