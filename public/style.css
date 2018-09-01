@@ -118,3 +118,32 @@ ul li>a.f:focus::before {
 .blackFade {
   background: rgba(0, 0, 0, 0.85);
 }
+
+.bouncing {
+  animation: bouncing 7s ease-in-out infinite;
+}
+
+
+@keyframes bouncing {
+  0% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px)
+  }
+  50% {
+    -webkit-transform: translateY(-15px);
+    -moz-transform: translateY(-15px);
+    -o-transform: translateY(-15px);
+    -ms-transform: translateY(-15px);
+    transform: translateY(-15px)
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -o-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px)
+  }
+}
