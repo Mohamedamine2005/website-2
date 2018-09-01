@@ -2,6 +2,7 @@ dependencies:
   btoa: 1.2.1
   dblapi.js: 2.2.0
   discord.js: 11.4.2
+  do-slide: 1.1.4
   express: 4.16.3
   firebase: 5.4.0
   node-fetch: 2.2.0
@@ -342,6 +343,10 @@ packages:
       uws: ^9.14.0
     resolution:
       integrity: sha512-MDwpu0lMFTjqomijDl1Ed9miMQe6kB4ifKdP28QZllmLv/HVOJXhatRgjS8urp/wBlOfx+qAYSXcdI5cKGYsfg==
+  /do-slide/1.1.4:
+    dev: false
+    resolution:
+      integrity: sha1-xcbYb2C55JRBVODoQC2lMLX5nOw=
   /dom-storage/2.1.0:
     dev: false
     resolution:
@@ -937,6 +942,7 @@ specifiers:
   btoa: ^1.2.1
   dblapi.js: ^2.2.0
   discord.js: ^11.4.2
+  do-slide: ^1.1.4
   express: ^4.16.3
   firebase: ^5.4.0
   node-fetch: ^2.2.0
