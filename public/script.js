@@ -5,7 +5,7 @@ $(document).ready(function() {
   
   new fullpage('.fullpage', {
     navigation: true,
-    sectionsColor: ['transparent', '#4BBFC3', '#22FF22']
+    sectionsColor: ['transparent', '#fff', '#111']
   });
 
 });

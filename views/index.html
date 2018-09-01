@@ -37,28 +37,26 @@
 </head>
 
 <style>
-  #particle-js {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-    opacity: 0.48;
+  
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #111;
+    color: white;
   }
-
-  canvas {
-    position: fixed;
-  }
+  
 </style>
 
 <body>
 
+  <!-- Global full div -->
   <div class="full">
 
     <div class="navbar-fixed">
       <nav class="transparent z-depth-0" role="navigation">
         <div class="nav-wrapper container">
+          <!-- Icons -->
           <a href="/" class="left valign-wrapper hide-on-med-and-down" style="height: 100%;">
             <img style="height: 80%;" src="https://cdn.glitch.com/dc9e80ff-cd40-4f49-9110-bd309a5952db%2Ftransparent.png?1531409065396">
           </a>
@@ -66,10 +64,10 @@
             <img style="height: 80%;" src="https://cdn.glitch.com/dc9e80ff-cd40-4f49-9110-bd309a5952db%2Ftransparent.png?1531409065396">
           </a>
 
+          <!-- Nav -->
           <ul class="right hide-on-med-and-down">
             <li>
               <a href="/" class="f waves-effect waves-light white-text" style="font-weight: 900; box-shadow: 0 -4px 0 -1px #fff inset;">Home</a>
-              <!--<a href="/about" class="f waves-effect waves-light white-text">About</a>-->
               <a href="/commands" class="f waves-effect waves-light white-text">Commands</a>
               <a href="https://discord.gg/ZZ8HuCZ" target="_blank" class="f waves-effect waves-light white-text">Community</a>
               <a href="https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot" onclick="window.open('https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot', 'newwindow', 'width=500,height=800'); return false;" class="waves-effect waves-light btn-flat white-text center" style="border-style: solid; border-width: 2px; border-radius: 5px; border-color: white;">INVITE</a>
@@ -85,33 +83,47 @@
     <!-- particles.js container -->
     <div id="particles-js" class="animated fadeIn">
     </div>
+    <!-- Nav-mobile -->
     <ul id="nav-mobile" class="sidenav black-gradient">
       <li>
         <a href="/" class="f waves-effect waves-light white-text" style="font-weight: 900; box-shadow: 4px 0px 0 -1px #fff inset;">Home</a>
-        <!--<a href="/about" class="f waves-effect waves-light white-text">About</a>-->
         <a href="/commands" class="f waves-effect waves-light white-text">Commands</a>
         <a href="https://discord.gg/ZZ8HuCZ" target="_blank" class="f waves-effect waves-light white-text">Community</a>
         <a href="https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot" onclick="window.open('https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot', 'newwindow', 'width=500,height=800'); return false;" class="waves-effect waves-light btn-flat white-text center" style="border-style: solid; border-width: 2px; border-radius: 5px; border-color: white;">INVITE</a>
       </li>
     </ul>
-    
-    <div class="fullpage">
-      <div class="header-wrapper section">
-      <div class="txt">
-        <h2 class="center white-text animated fadeInUp">expoBot</h2>
-        <p class="center white-text animated fadeInUp">bot that you need</p>
-        <a href="https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot" onclick="window.open('https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot', 'newwindow', 'width=500,height=800'); return false;" class="animated fadeInUp waves-effect waves-light btn-flat white-text center" style="border-style: solid; border-width: 2px; border-radius: 5px; border-color: white;">INVITE</a>
-      </div>
-    </div>
-      <div class="section">Section 2</div>
-      <div class="section">Section 3</div>
-    </div>
-    
-  </div>
 
-  <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <!-- Pages -->
+    <div class="fullpage">
+      
+      <!-- Section 1 | Intro -->
+      <div class="header-wrapper section">
+        <div class="txt">
+          <h2 class="center white-text animated fadeInUp">expoBot</h2>
+          <p class="center white-text animated fadeInUp">bot that you need</p>
+          <a href="https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot" onclick="window.open('https://discordapp.com/api/oauth2/authorize?client_id=464747957288435732&permissions=8&scope=bot', 'newwindow', 'width=500,height=800'); return false;" class="animated fadeInUp waves-effect waves-light btn-flat white-text center" style="border-style: solid; border-width: 2px; border-radius: 5px; border-color: white;">INVITE</a>
+        </div>
+      </div>
+      
+      <!-- Section 2 | About -->
+      <div class="row section">
+        <div class="col s12 m6 valign-wrapper" style="background: #111; height: 100%;">
+          <div class="container">
+            <h1 class="center">About</h1>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Section 3 | About -->
+      <div class="row section">
+        
+      </div>
+      
+    </div> <!-- Pages div end -->
+
+  </div> <!-- Full div end -->
+
   <script src="particles.js"></script>
-  <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="scriptParticles.js"></script>
 
