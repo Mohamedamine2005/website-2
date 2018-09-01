@@ -114,3 +114,7 @@ ul li>a.f:focus::before {
 #nav-mobile li>a.f:hover::before {
   transform: scaleY(1)
 }
+
+.blackFade {
+  background: rgba(0, 0, 0, 0.75);
+}

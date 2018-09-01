@@ -3432,27 +3432,14 @@ nav ul a span.badge {
   margin-right: -0.75rem;
 }
 
-/*.section {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+.section {
+  background-color: #fff;
 }
 
-.section.no-pad {
-  padding: 0;
-}
-
-.section.no-pad-bot {
-  padding-bottom: 0;
-}
-
-.section.no-pad-top {
-  padding-top: 0;
-}*/
 
 .row {
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 20px;
 }
 
 .row:after {

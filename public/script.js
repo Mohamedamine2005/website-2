@@ -5,9 +5,20 @@ $(document).ready(function() {
   
   new fullpage('.fullpage', {
     navigation: true,
-    sectionsColor: ['transparent', '#fff', '#111'],
     loopBottom: true,
     dragAndMove: true
+  });
+  
+  $( window ).scroll(function() {
+    var scroll = window.pageYOffset || document.documentElement.scrollTop;
+ 
+    if (scroll == 0) {
+      $('nav').removeClass('blackFade');
+      $('nav').addClass('transparent');
+    } else {
+      $('nav').removeClass('transparent');
+      $('nav').addClass('blackFade');
+    }
   });
   
   if ($('body').hasClass('fp-viewing-0')) {console.log("1")}
