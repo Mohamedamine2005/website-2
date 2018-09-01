@@ -39,7 +39,7 @@ body{
     background-attachment: initial;
     background-origin: initial;
     background-clip: initial;
-    margin-top: -56px;
+    /*margin-top: -56px;*/
 }
 
 ::selection {
@@ -81,9 +81,9 @@ body{
   margin-top: -48px;
 }
 
-nav {
+/*nav {
   margin-top: 56px;
-}
+}*/
 
 #nav-mobile li>a.f::before {
     background-color: #fff;
