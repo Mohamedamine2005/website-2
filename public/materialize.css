@@ -3432,7 +3432,7 @@ nav ul a span.badge {
   margin-right: -0.75rem;
 }
 
-.section {
+/*.section {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -3447,7 +3447,7 @@ nav ul a span.badge {
 
 .section.no-pad-top {
   padding-top: 0;
-}
+}*/
 
 .row {
   margin-left: auto;
