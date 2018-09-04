@@ -123,7 +123,6 @@ ul li>a.f:focus::before {
   animation: bouncing 7s ease-in-out infinite;
 }
 
-
 @keyframes bouncing {
   0% {
     -webkit-transform: translateY(0px);
@@ -146,4 +145,10 @@ ul li>a.f:focus::before {
     -ms-transform: translateY(0px);
     transform: translateY(0px)
   }
+}
+
+/* DISCORD WIDGET */
+
+.widget-header {
+  background-color: #333333 !important;
 }
