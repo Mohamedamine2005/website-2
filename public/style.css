@@ -152,3 +152,7 @@ ul li>a.f:focus::before {
 .widget-header {
   background-color: #333333 !important;
 }
+
+.hidden {
+  visibil
+}

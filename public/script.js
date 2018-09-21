@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+  $('body').removeClass('hidden');
   $('.sidenav').sidenav();
   $('.tabs').tabs();
   
