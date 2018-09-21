@@ -154,5 +154,5 @@ ul li>a.f:focus::before {
 }
 
 .hidden {
-  visibil
+  visibility: hidden;
 }
