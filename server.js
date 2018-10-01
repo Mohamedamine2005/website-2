@@ -1,6 +1,5 @@
 const express = require('express');
 var app = express();
-const firebase = require('firebase');
 const btoa = require('btoa');
 const fetch = require('node-fetch');
 
